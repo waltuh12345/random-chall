@@ -1,0 +1,6 @@
+.border {
+    border: 2px solid hotpink;
+    > * {
+        border: 2px solid magenta;
+    }
+}

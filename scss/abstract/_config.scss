@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+$ff: 'Rubik', sans-serif;
+
+/* Step -5: 11.25px → 11.80px */
+$secondary-text: clamp(0.70rem, calc(0.53rem + 0.55vw), 0.74rem);
+
+/* Step -4: 13.50px → 14.75px */
+$primary-text: clamp(0.84rem, calc(0.45rem + 1.25vw), 0.92rem);
+
+/* Step -3: 16.20px → 18.43px */
+$sub-title: clamp(1.01rem, calc(0.32rem + 2.23vw), 1.15rem);
+
+/* Step -2: 19.44px → 23.04px */
+$title: clamp(1.22rem, calc(0.09rem + 3.60vw), 1.44rem);
+
+/* Step -1: 23.33px → 28.80px */
+$sub-heading: clamp(1.46rem, calc(-0.25rem + 5.47vw), 1.80rem);
+
+/* Step 0: 28.00px → 36.00px */
+$heading: clamp(1.75rem, calc(-0.75rem + 8.00vw), 2.25rem);
+
+//=====COLORS======//
+
+$clr-primary: hsl(246, 80%, 60%);
+$clr-primary-work: hsl(15, 100%, 70%);
+$clr-primary-play: hsl(195, 74%, 62%);
+$clr-primary-study:  hsl(348, 100%, 68%);
+$clr-primary-exercise: hsl(145, 58%, 55%);
+$clr-primary-social: hsl(264, 64%, 52%);
+$clr-primary-sc: hsl(43, 84%, 65%);
+
+$clr-neutral300: hsl(236, 100%, 87%);
+$clr-neutral400: hsl(235, 45%, 61%);
+$clr-neutral500: hsl(235, 46%, 20%);
+$clr-neutral600: hsl(226, 43%, 10%);
+
+//icon class 
+/* New Simplified Version 6 CSS */
+/* Step 1: Common Properties: All required to make icons render reliably */
+i::after {
+  /* removed font- based rules */
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font: var(--fa-font-solid);
+}
+
+
+
+
+
+//functions
+@mixin flex($fd) {
+  display: flex;
+  flex-direction: $fd;
+  @if ($fd == 'row') {
+    align-items: center;
+  }
+}
+%even-col {
+  display: flex;
+  > * {
+    flex: 1;
+  }
+}
+@mixin responsiveGrid($gtc) {
+  display: grid;
+  grid-template-columns: $gtc;
+}
+@mixin grid() {
+  display: grid;
+}
+$bs: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+$bs-inner: rgba(0, 0, 0, 0.09) 0px 3px 12px;

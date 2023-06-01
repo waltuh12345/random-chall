@@ -1,0 +1,151 @@
+@use 'config' as *;
+body {
+  background-color: $clr-neutral600;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: $ff;
+  h1 {
+    font-size: $sub-heading;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: $sub-heading;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  h5 {
+    color: $clr-neutral400;
+  }
+}
+.wrapper {
+  @include grid();
+  min-height: 100vh;
+  place-items: center;
+}
+main {
+  background-color: $clr-neutral500;
+}
+main,.card {
+  border-radius: 18px;
+  box-shadow: $bs;
+  color: $clr-neutral300;
+  overflow: hidden;
+  > :last-child {
+    padding: 1.4rem;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  width: min(86%,1200px);
+  gap: 1.5rem;
+}
+main{
+  figure {
+    background-color: $clr-primary;
+    border-radius: 12px;
+    box-shadow: $bs-inner;
+    @include flex(row);
+    img{width: 60px;}
+    gap: 1rem;
+    padding: 1.8rem;
+    > :first-child {
+      border: .20rem solid $clr-neutral300;
+      border-radius: 50%;
+    }
+  }
+  ul {
+    @extend %even-col;
+    font-size: 18px;
+    text-align: center;
+    color: $clr-neutral400;
+    li.active {
+      color: $clr-neutral300;
+    }
+    span{cursor: pointer;}
+  }
+}
+.grid{
+  .card {
+    @include grid();
+    align-content: space-between;
+    > :first-child {
+      padding: 0 1.5rem;
+      img {
+        display: block;
+        margin-left: auto;
+        width: 50px;
+      }
+    }
+    > :last-child {
+      background-color: $clr-neutral500;
+      border-radius: 18px;
+      i::after {
+        content: "\f141";
+      }
+      span {
+        color: $clr-neutral400;
+      }
+      > * {
+        @include flex(row);
+        justify-content: space-between;
+      }
+    }
+  }
+}
+.grid {
+  @include responsiveGrid(repeat(auto-fit,minmax(12rem,1fr)));
+  gap: 1.5rem;
+  > :nth-child(1) {
+    background-color: $clr-primary-work;
+  }
+  > :nth-child(2) {
+    background-color: $clr-primary-play;
+  }
+  > :nth-child(3) {
+    background-color: $clr-primary-study;
+  }
+  >:nth-child(4) {
+    background-color: $clr-primary-exercise;
+  }
+  >:nth-child(5) {
+    background-color: $clr-primary-social;
+  }
+  >:nth-child(6) {
+    background-color: $clr-primary-sc;
+  }
+}
+@media (min-width: 53rem) {
+  .container {
+    @include flex(row);
+    align-items: initial;
+    main {
+      @include flex(column);
+      flex: 0 1 15rem;
+      figure {
+        align-items: start;
+        @include flex(column);
+        flex: 1;
+      }
+      ul {
+        flex-direction: column;
+        text-align: initial;
+      }
+    }
+    .grid {
+      flex: 1;
+    }
+  }
+}
+@media (min-width: 31rem) {
+  .grid .card {
+    > :last-child >:last-child {
+      display: initial;
+      justify-content: initial;
+    }
+  }
+}
